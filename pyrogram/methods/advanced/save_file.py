@@ -135,7 +135,7 @@ class SaveFile:
             raise ValueError(f"Can't upload files bigger than {file_size_limit_mib} MiB")
 
         file_total_parts = int(math.ceil(file_size / part_size))
-        is_big = file_size > 10 * 1024 * 1024
+        is_big = file_size > 1 * 1024 * 1024
         pool_size = 3 if is_big else 1
         workers_count = 4 if is_big else 1
         is_missing_part = file_id is not None
